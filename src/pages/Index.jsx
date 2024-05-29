@@ -1,4 +1,4 @@
-import { Container, VStack, Heading, Text, Box, Image, HStack, IconButton, Link } from "@chakra-ui/react";
+import { Container, VStack, Heading, Text, Box, Image, HStack, IconButton, Link, useColorMode, Button } from "@chakra-ui/react";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const projects = [
@@ -20,8 +20,13 @@ const projects = [
 ];
 
 const Index = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <Container maxW="container.lg" py={10}>
+      <Button onClick={toggleColorMode} mb={4}>
+        Toggle {colorMode === "light" ? "Dark" : "Light"}
+      </Button>
       <VStack spacing={8} align="stretch">
         <Heading as="h1" size="2xl" textAlign="center">
           Carpenter Portfolio
